@@ -1,5 +1,6 @@
 (ns diamond.core
-  (:require clojure.string))
+  (:require [clojure.string]
+            [diamond.d3.graph :as g]))
 
 (defn websocket-test []
   (def connection (js/WebSocket. "ws://localhost:3000/ws"))
@@ -63,101 +64,42 @@
 (def first-names (flatten (map #(clojure.string/split % #"/") first-names)))
 (def first-names (map clojure.string/capitalize first-names))
 
-(def nodes (clj->js (into []
-                      (for [x (range numx)
-                            y (range numy)]
-                        {"x" (+ 10 (* 10 x))
-                         "y" (+ 10 (* 10 y))
-                         "name" (rand-nth first-names)}))))
-
-(def links (clj->js (into []
-                      (flatten
-                        (for [i (filter even? (range numnodes))]
-                          (let [nameof #(.-name (nth nodes %))]
-                            (map
-                              (fn [t]
-                                {"source" i
-                                 "target" t
-                                 "desc" (str (nameof i) " lubs " (nameof t))})
-                              (take 1 (shuffle (remove #(= i %) (range numnodes)))))))))))
-
-(defrecord D3Graph [svg force-layout])
-
-(defn start [d3graph]
-  (.start (:force-layout d3graph)))
-
-(defn update-nodes [svg new-nodes]
-  "Updates the D3 visualization to match the new node data"
-  (let [node (.. svg (selectAll ".node") (data new-nodes))]
-    ;add
-    (.. node
-      (enter)
-      (append "circle")
-      (attr "class" "node")
-      (attr "r" 8))
-
-    ;add+update
-    (.. node
-      (append "svg:title")
-      (text (fn [d] (.-name d))))))
-
-(defn update-links [svg new-links]
-  "Updates the D3 visualization to match the new link data"
-  (let [link (.. svg (selectAll ".link") (data new-links))]
-    ;add
-    (.. link
-      (enter)
-      (append "line")
-      (attr "class" "link"))
-
-    ;add+update
-    (.. link
-      (append "svg:title")
-      (text (fn [d] (.-desc d))))))
-
-(defn tick [{svg :svg}]
-  (let [node (.selectAll svg ".node")
-        link (.selectAll svg ".link")]
-    (.. link
-      (attr "x1" (fn [d]
-                   (.. d -source -x)))
-      (attr "y1" (fn [d] (.. d -source -y)))
-      (attr "x2" (fn [d] (.. d -target -x)))
-      (attr "y2" (fn [d] (.. d -target -y))))
-    (.. node
-      (attr "cx" (fn [d] (.-x d)))
-      (attr "cy" (fn [d] (.-y d))))))
+(defn build-random-nodes []
+  (clj->js (into []
+             (for [x (range numx)
+                   y (range numy)]
+               {"name" (rand-nth first-names)}))))
 
 
-(defn update [{svg :svg force-layout :force-layout} new-nodes new-links]
-  "Updates the graph data and resets the force layout"
-  (update-nodes svg new-nodes)
-  (update-links svg new-links)
-  (.. force-layout
-    (nodes new-nodes)
-    (links new-links)))
+(defn generate-random-links [i nodes]
+  (let [nameof #(.-name (nth nodes %))]
+    (map
+      (fn [t]
+        {"source" i
+         "target" t
+         "desc" (str (nameof i) " lubs " (nameof t))})
+      (take 1 (shuffle (remove #(= i %) (range numnodes)))))))
+
+(defn build-random-links [nodes]
+  (clj->js (into []
+             (flatten
+               (for [i (filter even? (range numnodes))]
+                 (generate-random-links i nodes))))))
 
 
-(defn create-graph []
-  (def svg (.. js/d3
-             (select "#container")
-             (append "svg")
-             (attr "width" 960)
-             (attr "height" 500)))
+(def nodes (build-random-nodes))
+(def links (build-random-links nodes))
 
-  (def size (clj->js [700 400]))
+(def graph (g/create-graph 900 1200))
 
-  (def force-layout (.. js/d3 -layout (force)
-           (size size)
-           (charge -100)
-           (gravity 0.2)
-           (linkDistance 50)))
+(g/update graph nodes links)
+(g/start graph)
 
-  (def graph (D3Graph. svg force-layout))
-  (.on force-layout "tick" (fn [] (tick graph)))
-  graph)
-
-(def graph (create-graph))
-
-(update graph nodes links)
-(start graph)
+(.addEventListener js/window "keydown"
+  (fn [event]
+    (if (= 13 (.-keyCode event))
+      (do
+        (.log js/console "updating graph")
+        (.push links (clj->js (first (generate-random-links (rand-int numnodes) nodes))))
+        (g/update graph nodes links)
+        (g/start graph)))))

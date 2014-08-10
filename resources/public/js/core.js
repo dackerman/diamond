@@ -25137,6 +25137,229 @@ cljs.core.special_symbol_QMARK_ = function special_symbol_QMARK_(x) {
   "letfn*", "letfn*", -110097810, null), null, new cljs.core.Symbol(null, "if", "if", 1181717262, null), null, new cljs.core.Symbol(null, "new", "new", -444906321, null), null, new cljs.core.Symbol(null, "ns", "ns", 2082130287, null), null, new cljs.core.Symbol(null, "deftype*", "deftype*", 962659890, null), null, new cljs.core.Symbol(null, "let*", "let*", 1920721458, null), null, new cljs.core.Symbol(null, "js*", "js*", -1134233646, null), null, new cljs.core.Symbol(null, "fn*", "fn*", -752876845, 
   null), null, new cljs.core.Symbol(null, "recur", "recur", 1202958259, null), null, new cljs.core.Symbol(null, "set!", "set!", 250714521, null), null, new cljs.core.Symbol(null, ".", ".", 1975675962, null), null, new cljs.core.Symbol(null, "quote", "quote", 1377916282, null), null, new cljs.core.Symbol(null, "throw", "throw", 595905694, null), null, new cljs.core.Symbol(null, "def", "def", 597100991, null), null], null), null), x);
 };
+goog.provide("diamond.d3.graph");
+goog.require("cljs.core");
+diamond.d3.graph.D3Graph = function(svg, force_layout, __meta, __extmap) {
+  this.svg = svg;
+  this.force_layout = force_layout;
+  this.__meta = __meta;
+  this.__extmap = __extmap;
+  this.cljs$lang$protocol_mask$partition0$ = 2229667594;
+  this.cljs$lang$protocol_mask$partition1$ = 8192;
+  if (arguments.length > 2) {
+    this.__meta = __meta;
+    this.__extmap = __extmap;
+  } else {
+    this.__meta = null;
+    this.__extmap = null;
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ILookup$_lookup$arity$2 = function(this__4130__auto__, k__4131__auto__) {
+  var self__ = this;
+  var this__4130__auto____$1 = this;
+  return cljs.core._lookup.call(null, this__4130__auto____$1, k__4131__auto__, null);
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ILookup$_lookup$arity$3 = function(this__4132__auto__, k7035, else__4133__auto__) {
+  var self__ = this;
+  var this__4132__auto____$1 = this;
+  var G__7037 = k7035 instanceof cljs.core.Keyword ? k7035.fqn : null;
+  switch(G__7037) {
+    case "force-layout":
+      return self__.force_layout;
+      break;
+    case "svg":
+      return self__.svg;
+      break;
+    default:
+      return cljs.core.get.call(null, self__.__extmap, k7035, else__4133__auto__);
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IPrintWithWriter$_pr_writer$arity$3 = function(this__4144__auto__, writer__4145__auto__, opts__4146__auto__) {
+  var self__ = this;
+  var this__4144__auto____$1 = this;
+  var pr_pair__4147__auto__ = function(this__4144__auto____$1) {
+    return function(keyval__4148__auto__) {
+      return cljs.core.pr_sequential_writer.call(null, writer__4145__auto__, cljs.core.pr_writer, "", " ", "", opts__4146__auto__, keyval__4148__auto__);
+    };
+  }(this__4144__auto____$1);
+  return cljs.core.pr_sequential_writer.call(null, writer__4145__auto__, pr_pair__4147__auto__, "#diamond.d3.graph.D3Graph{", ", ", "}", opts__4146__auto__, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "svg", "svg", 856789142), self__.svg], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+  [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), self__.force_layout], null)], null), self__.__extmap));
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IMeta$_meta$arity$1 = function(this__4128__auto__) {
+  var self__ = this;
+  var this__4128__auto____$1 = this;
+  return self__.__meta;
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ICloneable$_clone$arity$1 = function(this__4124__auto__) {
+  var self__ = this;
+  var this__4124__auto____$1 = this;
+  return new diamond.d3.graph.D3Graph(self__.svg, self__.force_layout, self__.__meta, self__.__extmap, self__.__hash);
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ICounted$_count$arity$1 = function(this__4134__auto__) {
+  var self__ = this;
+  var this__4134__auto____$1 = this;
+  return 2 + cljs.core.count.call(null, self__.__extmap);
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IHash$_hash$arity$1 = function(this__4125__auto__) {
+  var self__ = this;
+  var this__4125__auto____$1 = this;
+  var h__3955__auto__ = self__.__hash;
+  if (!(h__3955__auto__ == null)) {
+    return h__3955__auto__;
+  } else {
+    var h__3955__auto____$1 = cljs.core.hash_imap.call(null, this__4125__auto____$1);
+    self__.__hash = h__3955__auto____$1;
+    return h__3955__auto____$1;
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IEquiv$_equiv$arity$2 = function(this__4126__auto__, other__4127__auto__) {
+  var self__ = this;
+  var this__4126__auto____$1 = this;
+  if (cljs.core.truth_(function() {
+    var and__3532__auto__ = other__4127__auto__;
+    if (cljs.core.truth_(and__3532__auto__)) {
+      return this__4126__auto____$1.constructor === other__4127__auto__.constructor && cljs.core.equiv_map.call(null, this__4126__auto____$1, other__4127__auto__);
+    } else {
+      return and__3532__auto__;
+    }
+  }())) {
+    return true;
+  } else {
+    return false;
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IMap$_dissoc$arity$2 = function(this__4139__auto__, k__4140__auto__) {
+  var self__ = this;
+  var this__4139__auto____$1 = this;
+  if (cljs.core.contains_QMARK_.call(null, new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), null, new cljs.core.Keyword(null, "svg", "svg", 856789142), null], null), null), k__4140__auto__)) {
+    return cljs.core.dissoc.call(null, cljs.core.with_meta.call(null, cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, this__4139__auto____$1), self__.__meta), k__4140__auto__);
+  } else {
+    return new diamond.d3.graph.D3Graph(self__.svg, self__.force_layout, self__.__meta, cljs.core.not_empty.call(null, cljs.core.dissoc.call(null, self__.__extmap, k__4140__auto__)), null);
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IAssociative$_assoc$arity$3 = function(this__4137__auto__, k__4138__auto__, G__7034) {
+  var self__ = this;
+  var this__4137__auto____$1 = this;
+  var pred__7038 = cljs.core.keyword_identical_QMARK_;
+  var expr__7039 = k__4138__auto__;
+  if (cljs.core.truth_(pred__7038.call(null, new cljs.core.Keyword(null, "svg", "svg", 856789142), expr__7039))) {
+    return new diamond.d3.graph.D3Graph(G__7034, self__.force_layout, self__.__meta, self__.__extmap, null);
+  } else {
+    if (cljs.core.truth_(pred__7038.call(null, new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), expr__7039))) {
+      return new diamond.d3.graph.D3Graph(self__.svg, G__7034, self__.__meta, self__.__extmap, null);
+    } else {
+      return new diamond.d3.graph.D3Graph(self__.svg, self__.force_layout, self__.__meta, cljs.core.assoc.call(null, self__.__extmap, k__4138__auto__, G__7034), null);
+    }
+  }
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ISeqable$_seq$arity$1 = function(this__4142__auto__) {
+  var self__ = this;
+  var this__4142__auto____$1 = this;
+  return cljs.core.seq.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "svg", "svg", 856789142), self__.svg], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), self__.force_layout], null)], null), self__.__extmap));
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(this__4129__auto__, G__7034) {
+  var self__ = this;
+  var this__4129__auto____$1 = this;
+  return new diamond.d3.graph.D3Graph(self__.svg, self__.force_layout, G__7034, self__.__extmap, self__.__hash);
+};
+diamond.d3.graph.D3Graph.prototype.cljs$core$ICollection$_conj$arity$2 = function(this__4135__auto__, entry__4136__auto__) {
+  var self__ = this;
+  var this__4135__auto____$1 = this;
+  if (cljs.core.vector_QMARK_.call(null, entry__4136__auto__)) {
+    return cljs.core._assoc.call(null, this__4135__auto____$1, cljs.core._nth.call(null, entry__4136__auto__, 0), cljs.core._nth.call(null, entry__4136__auto__, 1));
+  } else {
+    return cljs.core.reduce.call(null, cljs.core._conj, this__4135__auto____$1, entry__4136__auto__);
+  }
+};
+diamond.d3.graph.D3Graph.cljs$lang$type = true;
+diamond.d3.graph.D3Graph.cljs$lang$ctorPrSeq = function(this__4164__auto__) {
+  return cljs.core._conj.call(null, cljs.core.List.EMPTY, "diamond.d3.graph/D3Graph");
+};
+diamond.d3.graph.D3Graph.cljs$lang$ctorPrWriter = function(this__4164__auto__, writer__4165__auto__) {
+  return cljs.core._write.call(null, writer__4165__auto__, "diamond.d3.graph/D3Graph");
+};
+diamond.d3.graph.__GT_D3Graph = function __GT_D3Graph(svg, force_layout) {
+  return new diamond.d3.graph.D3Graph(svg, force_layout);
+};
+diamond.d3.graph.map__GT_D3Graph = function map__GT_D3Graph(G__7036) {
+  return new diamond.d3.graph.D3Graph((new cljs.core.Keyword(null, "svg", "svg", 856789142)).cljs$core$IFn$_invoke$arity$1(G__7036), (new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)).cljs$core$IFn$_invoke$arity$1(G__7036), null, cljs.core.dissoc.call(null, G__7036, new cljs.core.Keyword(null, "svg", "svg", 856789142), new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)));
+};
+diamond.d3.graph.update_nodes = function update_nodes(svg, new_nodes) {
+  var node = svg.selectAll(".node").data(new_nodes);
+  node.enter().append("circle").attr("class", "node").attr("r", 8);
+  return node.append("svg:title").text(function(node) {
+    return function(d) {
+      return d.name;
+    };
+  }(node));
+};
+diamond.d3.graph.update_links = function update_links(svg, new_links) {
+  var link = svg.selectAll(".link").data(new_links);
+  link.classed("enter", false);
+  link.enter().append("line").classed("link", true).classed("enter", true);
+  return link.append("svg:title").text(function(link) {
+    return function(d) {
+      return d.desc;
+    };
+  }(link));
+};
+diamond.d3.graph.tick = function tick(p__7042) {
+  var map__7044 = p__7042;
+  var map__7044__$1 = cljs.core.seq_QMARK_.call(null, map__7044) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7044) : map__7044;
+  var svg = cljs.core.get.call(null, map__7044__$1, new cljs.core.Keyword(null, "svg", "svg", 856789142));
+  var node = svg.selectAll(".node");
+  var link = svg.selectAll(".link");
+  link.attr("x1", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.source.x;
+    };
+  }(node, link, map__7044, map__7044__$1, svg)).attr("y1", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.source.y;
+    };
+  }(node, link, map__7044, map__7044__$1, svg)).attr("x2", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.target.x;
+    };
+  }(node, link, map__7044, map__7044__$1, svg)).attr("y2", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.target.y;
+    };
+  }(node, link, map__7044, map__7044__$1, svg));
+  return node.attr("cx", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.x;
+    };
+  }(node, link, map__7044, map__7044__$1, svg)).attr("cy", function(node, link, map__7044, map__7044__$1, svg) {
+    return function(d) {
+      return d.y;
+    };
+  }(node, link, map__7044, map__7044__$1, svg));
+};
+diamond.d3.graph.start = function start(d3graph) {
+  return(new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)).cljs$core$IFn$_invoke$arity$1(d3graph).start();
+};
+diamond.d3.graph.update = function update(p__7045, new_nodes, new_links) {
+  var map__7047 = p__7045;
+  var map__7047__$1 = cljs.core.seq_QMARK_.call(null, map__7047) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7047) : map__7047;
+  var graph = map__7047__$1;
+  var svg = cljs.core.get.call(null, map__7047__$1, new cljs.core.Keyword(null, "svg", "svg", 856789142));
+  var force_layout = cljs.core.get.call(null, map__7047__$1, new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016));
+  force_layout.stop();
+  diamond.d3.graph.update_nodes.call(null, svg, new_nodes);
+  diamond.d3.graph.update_links.call(null, svg, new_links);
+  force_layout.nodes(new_nodes).links(new_links);
+  return diamond.d3.graph.tick.call(null, graph);
+};
+diamond.d3.graph.create_graph = function create_graph(height, width) {
+  diamond.d3.graph.svg = d3.select("#container").append("svg").attr("width", width).attr("height", height);
+  diamond.d3.graph.force_layout = d3.layout.force().size(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [width, height], null))).charge(-100).gravity(.1).linkDistance(50);
+  diamond.d3.graph.graph = new diamond.d3.graph.D3Graph(diamond.d3.graph.svg, diamond.d3.graph.force_layout);
+  diamond.d3.graph.force_layout.on("tick", function() {
+    return diamond.d3.graph.tick.call(null, diamond.d3.graph.graph);
+  });
+  return diamond.d3.graph.graph;
+};
 goog.provide("clojure.string");
 goog.require("cljs.core");
 goog.require("goog.string.StringBuffer");
@@ -25343,6 +25566,8 @@ clojure.string.escape = function escape__$1(s, cmap) {
 };
 goog.provide("diamond.core");
 goog.require("cljs.core");
+goog.require("diamond.d3.graph");
+goog.require("diamond.d3.graph");
 goog.require("clojure.string");
 diamond.core.websocket_test = function websocket_test() {
   diamond.core.connection = new WebSocket("ws://localhost:3000/ws");
@@ -25360,376 +25585,158 @@ diamond.core.numnodes = diamond.core.numx * diamond.core.numy;
 diamond.core.first_names = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, ["dave", "dan", "sweta", ""], null);
 diamond.core.last_names = cljs.core.PersistentVector.EMPTY;
 diamond.core.name_strings = "1 LIAM\t1 CHARLOTTE\n2 NOAH\t2 AMELIA\n3 OLIVER\t3 OLIVIA\n4 AIDAN/AIDEN/ADEN\t4 AVA\n5 ASHER\t5 ARIA/ARYA\n6 OWEN\t6 VIOLET\n7 BENJAMIN\t7 SOPHIA/SOFIA\n8 DECLAN\t8 SCARLETT/SCARLET\n9 HENRY\t9 AUDREY\n10 JACKSON/JAXON\t10 EMMA\n11 GRAYSON/GREYSON\t11 NORA/NORAH\n12 ETHAN\t12 GRACE\n13 CALEB/KALEB\t13 LILY/LILLY\n14 LANDON/LANDEN\t14 AURORA\n15 ELIJAH\t15 ABIGAIL\n16 LUCAS/LUKAS\t16 CHLOE\n17 GABRIEL\t17 VIVIENNE/VIVIEN/VIVIAN\n18 FINN/FYNN\t18 HARPER\n19 ALEXANDER\t19 ALICE\n20 WILLIAM\t20 ELLA\n21 ELLIOT/ELIOT/ELLIOTT\t21 ELIZABETH/ELISABETH\n22 GAVIN\t22 CLAIRE/CLARE\n23 JACK\t23 LILA/LILAH\n24 LEVI\t24 ISABELLA\n25 SILAS\t25 ARIANNA/ARIANA\n26 SEBASTIAN/SEBASTIEN\t26 LUCY\n27 EMMETT\t27 ISLA\n28 HUDSON\t28 ELEANOR\n29 MICAH\t29 STELLA\n30 JACOB\t30 PENELOPE\n31 THEODORE\t31 GENEVIEVE\n32 ISAAC\t32 SADIE\n33 JAMES\t33 AVERY\n34 EVERETT\t34 HANNAH/HANNA\n35 WYATT\t35 CORA\n36 JASPER\t36 EVELYN\n37 LOGAN\t37 HAZEL\n38 LUKE\t38 JULIET/JULIETTE\n39 MILES/MYLES\t39 CAROLINE\n40 SAMUEL\t40 ADALYN";
-diamond.core.first_names = cljs.core.filter.call(null, function(p1__6180_SHARP_) {
-  return 2 < cljs.core.count.call(null, p1__6180_SHARP_);
+diamond.core.first_names = cljs.core.filter.call(null, function(p1__7075_SHARP_) {
+  return 2 < cljs.core.count.call(null, p1__7075_SHARP_);
 }, clojure.string.split.call(null, diamond.core.name_strings, /\s+/));
-diamond.core.first_names = cljs.core.flatten.call(null, cljs.core.map.call(null, function(p1__6181_SHARP_) {
-  return clojure.string.split.call(null, p1__6181_SHARP_, /\//);
+diamond.core.first_names = cljs.core.flatten.call(null, cljs.core.map.call(null, function(p1__7076_SHARP_) {
+  return clojure.string.split.call(null, p1__7076_SHARP_, /\//);
 }, diamond.core.first_names));
 diamond.core.first_names = cljs.core.map.call(null, clojure.string.capitalize, diamond.core.first_names);
-diamond.core.nodes = cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, function() {
-  var iter__4269__auto__ = function iter__6182(s__6183) {
-    return new cljs.core.LazySeq(null, function() {
-      var s__6183__$1 = s__6183;
-      while (true) {
-        var temp__4126__auto__ = cljs.core.seq.call(null, s__6183__$1);
-        if (temp__4126__auto__) {
-          var xs__4624__auto__ = temp__4126__auto__;
-          var x = cljs.core.first.call(null, xs__4624__auto__);
-          var iterys__4265__auto__ = function(s__6183__$1, x, xs__4624__auto__, temp__4126__auto__) {
-            return function iter__6184(s__6185) {
-              return new cljs.core.LazySeq(null, function(s__6183__$1, x, xs__4624__auto__, temp__4126__auto__) {
-                return function() {
-                  var s__6185__$1 = s__6185;
-                  while (true) {
-                    var temp__4126__auto____$1 = cljs.core.seq.call(null, s__6185__$1);
-                    if (temp__4126__auto____$1) {
-                      var s__6185__$2 = temp__4126__auto____$1;
-                      if (cljs.core.chunked_seq_QMARK_.call(null, s__6185__$2)) {
-                        var c__4267__auto__ = cljs.core.chunk_first.call(null, s__6185__$2);
-                        var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
-                        var b__6187 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
-                        if (function() {
-                          var i__6186 = 0;
-                          while (true) {
-                            if (i__6186 < size__4268__auto__) {
-                              var y = cljs.core._nth.call(null, c__4267__auto__, i__6186);
-                              cljs.core.chunk_append.call(null, b__6187, new cljs.core.PersistentArrayMap(null, 3, ["x", 10 + 10 * x, "y", 10 + 10 * y, "name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null));
-                              var G__6188 = i__6186 + 1;
-                              i__6186 = G__6188;
-                              continue;
-                            } else {
-                              return true;
+diamond.core.build_random_nodes = function build_random_nodes() {
+  return cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, function() {
+    var iter__4269__auto__ = function iter__7083(s__7084) {
+      return new cljs.core.LazySeq(null, function() {
+        var s__7084__$1 = s__7084;
+        while (true) {
+          var temp__4126__auto__ = cljs.core.seq.call(null, s__7084__$1);
+          if (temp__4126__auto__) {
+            var xs__4624__auto__ = temp__4126__auto__;
+            var x = cljs.core.first.call(null, xs__4624__auto__);
+            var iterys__4265__auto__ = function(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__) {
+              return function iter__7085(s__7086) {
+                return new cljs.core.LazySeq(null, function(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__) {
+                  return function() {
+                    var s__7086__$1 = s__7086;
+                    while (true) {
+                      var temp__4126__auto____$1 = cljs.core.seq.call(null, s__7086__$1);
+                      if (temp__4126__auto____$1) {
+                        var s__7086__$2 = temp__4126__auto____$1;
+                        if (cljs.core.chunked_seq_QMARK_.call(null, s__7086__$2)) {
+                          var c__4267__auto__ = cljs.core.chunk_first.call(null, s__7086__$2);
+                          var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
+                          var b__7088 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
+                          if (function() {
+                            var i__7087 = 0;
+                            while (true) {
+                              if (i__7087 < size__4268__auto__) {
+                                var y = cljs.core._nth.call(null, c__4267__auto__, i__7087);
+                                cljs.core.chunk_append.call(null, b__7088, new cljs.core.PersistentArrayMap(null, 1, ["name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null));
+                                var G__7089 = i__7087 + 1;
+                                i__7087 = G__7089;
+                                continue;
+                              } else {
+                                return true;
+                              }
+                              break;
                             }
-                            break;
+                          }()) {
+                            return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7088), iter__7085.call(null, cljs.core.chunk_rest.call(null, s__7086__$2)));
+                          } else {
+                            return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7088), null);
                           }
-                        }()) {
-                          return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__6187), iter__6184.call(null, cljs.core.chunk_rest.call(null, s__6185__$2)));
                         } else {
-                          return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__6187), null);
+                          var y = cljs.core.first.call(null, s__7086__$2);
+                          return cljs.core.cons.call(null, new cljs.core.PersistentArrayMap(null, 1, ["name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null), iter__7085.call(null, cljs.core.rest.call(null, s__7086__$2)));
                         }
                       } else {
-                        var y = cljs.core.first.call(null, s__6185__$2);
-                        return cljs.core.cons.call(null, new cljs.core.PersistentArrayMap(null, 3, ["x", 10 + 10 * x, "y", 10 + 10 * y, "name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null), iter__6184.call(null, cljs.core.rest.call(null, s__6185__$2)));
+                        return null;
                       }
-                    } else {
-                      return null;
+                      break;
                     }
-                    break;
-                  }
-                };
-              }(s__6183__$1, x, xs__4624__auto__, temp__4126__auto__), null, null);
-            };
-          }(s__6183__$1, x, xs__4624__auto__, temp__4126__auto__);
-          var fs__4266__auto__ = cljs.core.seq.call(null, iterys__4265__auto__.call(null, cljs.core.range.call(null, diamond.core.numy)));
-          if (fs__4266__auto__) {
-            return cljs.core.concat.call(null, fs__4266__auto__, iter__6182.call(null, cljs.core.rest.call(null, s__6183__$1)));
-          } else {
-            var G__6189 = cljs.core.rest.call(null, s__6183__$1);
-            s__6183__$1 = G__6189;
-            continue;
-          }
-        } else {
-          return null;
-        }
-        break;
-      }
-    }, null, null);
-  };
-  return iter__4269__auto__.call(null, cljs.core.range.call(null, diamond.core.numx));
-}()));
-diamond.core.links = cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, cljs.core.flatten.call(null, function() {
-  var iter__4269__auto__ = function iter__6192(s__6193) {
-    return new cljs.core.LazySeq(null, function() {
-      var s__6193__$1 = s__6193;
-      while (true) {
-        var temp__4126__auto__ = cljs.core.seq.call(null, s__6193__$1);
-        if (temp__4126__auto__) {
-          var s__6193__$2 = temp__4126__auto__;
-          if (cljs.core.chunked_seq_QMARK_.call(null, s__6193__$2)) {
-            var c__4267__auto__ = cljs.core.chunk_first.call(null, s__6193__$2);
-            var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
-            var b__6195 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
-            if (function() {
-              var i__6194 = 0;
-              while (true) {
-                if (i__6194 < size__4268__auto__) {
-                  var i = cljs.core._nth.call(null, c__4267__auto__, i__6194);
-                  cljs.core.chunk_append.call(null, b__6195, function() {
-                    var nameof = function(i__6194, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__) {
-                      return function(p1__6190_SHARP_) {
-                        return cljs.core.nth.call(null, diamond.core.nodes, p1__6190_SHARP_).name;
-                      };
-                    }(i__6194, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__);
-                    return cljs.core.map.call(null, function(i__6194, nameof, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__) {
-                      return function(t) {
-                        return new cljs.core.PersistentArrayMap(null, 3, ["source", i, "target", t, "desc", "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, i)) + " lubs " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, t))], null);
-                      };
-                    }(i__6194, nameof, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__), cljs.core.take.call(null, 1, cljs.core.shuffle.call(null, cljs.core.remove.call(null, function(i__6194, nameof, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__) {
-                      return function(p1__6191_SHARP_) {
-                        return cljs.core._EQ_.call(null, i, p1__6191_SHARP_);
-                      };
-                    }(i__6194, nameof, i, c__4267__auto__, size__4268__auto__, b__6195, s__6193__$2, temp__4126__auto__), cljs.core.range.call(null, diamond.core.numnodes)))));
-                  }());
-                  var G__6196 = i__6194 + 1;
-                  i__6194 = G__6196;
-                  continue;
-                } else {
-                  return true;
-                }
-                break;
-              }
-            }()) {
-              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__6195), iter__6192.call(null, cljs.core.chunk_rest.call(null, s__6193__$2)));
+                  };
+                }(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__), null, null);
+              };
+            }(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__);
+            var fs__4266__auto__ = cljs.core.seq.call(null, iterys__4265__auto__.call(null, cljs.core.range.call(null, diamond.core.numy)));
+            if (fs__4266__auto__) {
+              return cljs.core.concat.call(null, fs__4266__auto__, iter__7083.call(null, cljs.core.rest.call(null, s__7084__$1)));
             } else {
-              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__6195), null);
+              var G__7090 = cljs.core.rest.call(null, s__7084__$1);
+              s__7084__$1 = G__7090;
+              continue;
             }
           } else {
-            var i = cljs.core.first.call(null, s__6193__$2);
-            return cljs.core.cons.call(null, function() {
-              var nameof = function(i, s__6193__$2, temp__4126__auto__) {
-                return function(p1__6190_SHARP_) {
-                  return cljs.core.nth.call(null, diamond.core.nodes, p1__6190_SHARP_).name;
-                };
-              }(i, s__6193__$2, temp__4126__auto__);
-              return cljs.core.map.call(null, function(nameof, i, s__6193__$2, temp__4126__auto__) {
-                return function(t) {
-                  return new cljs.core.PersistentArrayMap(null, 3, ["source", i, "target", t, "desc", "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, i)) + " lubs " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, t))], null);
-                };
-              }(nameof, i, s__6193__$2, temp__4126__auto__), cljs.core.take.call(null, 1, cljs.core.shuffle.call(null, cljs.core.remove.call(null, function(nameof, i, s__6193__$2, temp__4126__auto__) {
-                return function(p1__6191_SHARP_) {
-                  return cljs.core._EQ_.call(null, i, p1__6191_SHARP_);
-                };
-              }(nameof, i, s__6193__$2, temp__4126__auto__), cljs.core.range.call(null, diamond.core.numnodes)))));
-            }(), iter__6192.call(null, cljs.core.rest.call(null, s__6193__$2)));
+            return null;
           }
-        } else {
-          return null;
+          break;
         }
-        break;
-      }
-    }, null, null);
+      }, null, null);
+    };
+    return iter__4269__auto__.call(null, cljs.core.range.call(null, diamond.core.numx));
+  }()));
+};
+diamond.core.generate_random_links = function generate_random_links(i, nodes) {
+  var nameof = function(p1__7091_SHARP_) {
+    return cljs.core.nth.call(null, nodes, p1__7091_SHARP_).name;
   };
-  return iter__4269__auto__.call(null, cljs.core.filter.call(null, cljs.core.even_QMARK_, cljs.core.range.call(null, diamond.core.numnodes)));
-}())));
-diamond.core.D3Graph = function(svg, force_layout, __meta, __extmap) {
-  this.svg = svg;
-  this.force_layout = force_layout;
-  this.__meta = __meta;
-  this.__extmap = __extmap;
-  this.cljs$lang$protocol_mask$partition0$ = 2229667594;
-  this.cljs$lang$protocol_mask$partition1$ = 8192;
-  if (arguments.length > 2) {
-    this.__meta = __meta;
-    this.__extmap = __extmap;
+  return cljs.core.map.call(null, function(nameof) {
+    return function(t) {
+      return new cljs.core.PersistentArrayMap(null, 3, ["source", i, "target", t, "desc", "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, i)) + " lubs " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, t))], null);
+    };
+  }(nameof), cljs.core.take.call(null, 1, cljs.core.shuffle.call(null, cljs.core.remove.call(null, function(nameof) {
+    return function(p1__7092_SHARP_) {
+      return cljs.core._EQ_.call(null, i, p1__7092_SHARP_);
+    };
+  }(nameof), cljs.core.range.call(null, diamond.core.numnodes)))));
+};
+diamond.core.build_random_links = function build_random_links(nodes) {
+  return cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, cljs.core.flatten.call(null, function() {
+    var iter__4269__auto__ = function iter__7097(s__7098) {
+      return new cljs.core.LazySeq(null, function() {
+        var s__7098__$1 = s__7098;
+        while (true) {
+          var temp__4126__auto__ = cljs.core.seq.call(null, s__7098__$1);
+          if (temp__4126__auto__) {
+            var s__7098__$2 = temp__4126__auto__;
+            if (cljs.core.chunked_seq_QMARK_.call(null, s__7098__$2)) {
+              var c__4267__auto__ = cljs.core.chunk_first.call(null, s__7098__$2);
+              var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
+              var b__7100 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
+              if (function() {
+                var i__7099 = 0;
+                while (true) {
+                  if (i__7099 < size__4268__auto__) {
+                    var i = cljs.core._nth.call(null, c__4267__auto__, i__7099);
+                    cljs.core.chunk_append.call(null, b__7100, diamond.core.generate_random_links.call(null, i, nodes));
+                    var G__7101 = i__7099 + 1;
+                    i__7099 = G__7101;
+                    continue;
+                  } else {
+                    return true;
+                  }
+                  break;
+                }
+              }()) {
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7100), iter__7097.call(null, cljs.core.chunk_rest.call(null, s__7098__$2)));
+              } else {
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7100), null);
+              }
+            } else {
+              var i = cljs.core.first.call(null, s__7098__$2);
+              return cljs.core.cons.call(null, diamond.core.generate_random_links.call(null, i, nodes), iter__7097.call(null, cljs.core.rest.call(null, s__7098__$2)));
+            }
+          } else {
+            return null;
+          }
+          break;
+        }
+      }, null, null);
+    };
+    return iter__4269__auto__.call(null, cljs.core.filter.call(null, cljs.core.even_QMARK_, cljs.core.range.call(null, diamond.core.numnodes)));
+  }())));
+};
+diamond.core.nodes = diamond.core.build_random_nodes.call(null);
+diamond.core.links = diamond.core.build_random_links.call(null, diamond.core.nodes);
+diamond.core.graph = diamond.d3.graph.create_graph.call(null, 900, 1200);
+diamond.d3.graph.update.call(null, diamond.core.graph, diamond.core.nodes, diamond.core.links);
+diamond.d3.graph.start.call(null, diamond.core.graph);
+window.addEventListener("keydown", function(event) {
+  if (cljs.core._EQ_.call(null, 13, event.keyCode)) {
+    console.log("updating graph");
+    diamond.core.links.push(cljs.core.clj__GT_js.call(null, cljs.core.first.call(null, diamond.core.generate_random_links.call(null, cljs.core.rand_int.call(null, diamond.core.numnodes), diamond.core.nodes))));
+    diamond.d3.graph.update.call(null, diamond.core.graph, diamond.core.nodes, diamond.core.links);
+    return diamond.d3.graph.start.call(null, diamond.core.graph);
   } else {
-    this.__meta = null;
-    this.__extmap = null;
+    return null;
   }
-};
-diamond.core.D3Graph.prototype.cljs$core$ILookup$_lookup$arity$2 = function(this__4130__auto__, k__4131__auto__) {
-  var self__ = this;
-  var this__4130__auto____$1 = this;
-  return cljs.core._lookup.call(null, this__4130__auto____$1, k__4131__auto__, null);
-};
-diamond.core.D3Graph.prototype.cljs$core$ILookup$_lookup$arity$3 = function(this__4132__auto__, k6198, else__4133__auto__) {
-  var self__ = this;
-  var this__4132__auto____$1 = this;
-  var G__6200 = k6198 instanceof cljs.core.Keyword ? k6198.fqn : null;
-  switch(G__6200) {
-    case "force-layout":
-      return self__.force_layout;
-      break;
-    case "svg":
-      return self__.svg;
-      break;
-    default:
-      return cljs.core.get.call(null, self__.__extmap, k6198, else__4133__auto__);
-  }
-};
-diamond.core.D3Graph.prototype.cljs$core$IPrintWithWriter$_pr_writer$arity$3 = function(this__4144__auto__, writer__4145__auto__, opts__4146__auto__) {
-  var self__ = this;
-  var this__4144__auto____$1 = this;
-  var pr_pair__4147__auto__ = function(this__4144__auto____$1) {
-    return function(keyval__4148__auto__) {
-      return cljs.core.pr_sequential_writer.call(null, writer__4145__auto__, cljs.core.pr_writer, "", " ", "", opts__4146__auto__, keyval__4148__auto__);
-    };
-  }(this__4144__auto____$1);
-  return cljs.core.pr_sequential_writer.call(null, writer__4145__auto__, pr_pair__4147__auto__, "#diamond.core.D3Graph{", ", ", "}", opts__4146__auto__, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "svg", "svg", 856789142), self__.svg], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-  [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), self__.force_layout], null)], null), self__.__extmap));
-};
-diamond.core.D3Graph.prototype.cljs$core$IMeta$_meta$arity$1 = function(this__4128__auto__) {
-  var self__ = this;
-  var this__4128__auto____$1 = this;
-  return self__.__meta;
-};
-diamond.core.D3Graph.prototype.cljs$core$ICloneable$_clone$arity$1 = function(this__4124__auto__) {
-  var self__ = this;
-  var this__4124__auto____$1 = this;
-  return new diamond.core.D3Graph(self__.svg, self__.force_layout, self__.__meta, self__.__extmap, self__.__hash);
-};
-diamond.core.D3Graph.prototype.cljs$core$ICounted$_count$arity$1 = function(this__4134__auto__) {
-  var self__ = this;
-  var this__4134__auto____$1 = this;
-  return 2 + cljs.core.count.call(null, self__.__extmap);
-};
-diamond.core.D3Graph.prototype.cljs$core$IHash$_hash$arity$1 = function(this__4125__auto__) {
-  var self__ = this;
-  var this__4125__auto____$1 = this;
-  var h__3955__auto__ = self__.__hash;
-  if (!(h__3955__auto__ == null)) {
-    return h__3955__auto__;
-  } else {
-    var h__3955__auto____$1 = cljs.core.hash_imap.call(null, this__4125__auto____$1);
-    self__.__hash = h__3955__auto____$1;
-    return h__3955__auto____$1;
-  }
-};
-diamond.core.D3Graph.prototype.cljs$core$IEquiv$_equiv$arity$2 = function(this__4126__auto__, other__4127__auto__) {
-  var self__ = this;
-  var this__4126__auto____$1 = this;
-  if (cljs.core.truth_(function() {
-    var and__3532__auto__ = other__4127__auto__;
-    if (cljs.core.truth_(and__3532__auto__)) {
-      return this__4126__auto____$1.constructor === other__4127__auto__.constructor && cljs.core.equiv_map.call(null, this__4126__auto____$1, other__4127__auto__);
-    } else {
-      return and__3532__auto__;
-    }
-  }())) {
-    return true;
-  } else {
-    return false;
-  }
-};
-diamond.core.D3Graph.prototype.cljs$core$IMap$_dissoc$arity$2 = function(this__4139__auto__, k__4140__auto__) {
-  var self__ = this;
-  var this__4139__auto____$1 = this;
-  if (cljs.core.contains_QMARK_.call(null, new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), null, new cljs.core.Keyword(null, "svg", "svg", 856789142), null], null), null), k__4140__auto__)) {
-    return cljs.core.dissoc.call(null, cljs.core.with_meta.call(null, cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, this__4139__auto____$1), self__.__meta), k__4140__auto__);
-  } else {
-    return new diamond.core.D3Graph(self__.svg, self__.force_layout, self__.__meta, cljs.core.not_empty.call(null, cljs.core.dissoc.call(null, self__.__extmap, k__4140__auto__)), null);
-  }
-};
-diamond.core.D3Graph.prototype.cljs$core$IAssociative$_assoc$arity$3 = function(this__4137__auto__, k__4138__auto__, G__6197) {
-  var self__ = this;
-  var this__4137__auto____$1 = this;
-  var pred__6201 = cljs.core.keyword_identical_QMARK_;
-  var expr__6202 = k__4138__auto__;
-  if (cljs.core.truth_(pred__6201.call(null, new cljs.core.Keyword(null, "svg", "svg", 856789142), expr__6202))) {
-    return new diamond.core.D3Graph(G__6197, self__.force_layout, self__.__meta, self__.__extmap, null);
-  } else {
-    if (cljs.core.truth_(pred__6201.call(null, new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), expr__6202))) {
-      return new diamond.core.D3Graph(self__.svg, G__6197, self__.__meta, self__.__extmap, null);
-    } else {
-      return new diamond.core.D3Graph(self__.svg, self__.force_layout, self__.__meta, cljs.core.assoc.call(null, self__.__extmap, k__4138__auto__, G__6197), null);
-    }
-  }
-};
-diamond.core.D3Graph.prototype.cljs$core$ISeqable$_seq$arity$1 = function(this__4142__auto__) {
-  var self__ = this;
-  var this__4142__auto____$1 = this;
-  return cljs.core.seq.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "svg", "svg", 856789142), self__.svg], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016), self__.force_layout], null)], null), self__.__extmap));
-};
-diamond.core.D3Graph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(this__4129__auto__, G__6197) {
-  var self__ = this;
-  var this__4129__auto____$1 = this;
-  return new diamond.core.D3Graph(self__.svg, self__.force_layout, G__6197, self__.__extmap, self__.__hash);
-};
-diamond.core.D3Graph.prototype.cljs$core$ICollection$_conj$arity$2 = function(this__4135__auto__, entry__4136__auto__) {
-  var self__ = this;
-  var this__4135__auto____$1 = this;
-  if (cljs.core.vector_QMARK_.call(null, entry__4136__auto__)) {
-    return cljs.core._assoc.call(null, this__4135__auto____$1, cljs.core._nth.call(null, entry__4136__auto__, 0), cljs.core._nth.call(null, entry__4136__auto__, 1));
-  } else {
-    return cljs.core.reduce.call(null, cljs.core._conj, this__4135__auto____$1, entry__4136__auto__);
-  }
-};
-diamond.core.D3Graph.cljs$lang$type = true;
-diamond.core.D3Graph.cljs$lang$ctorPrSeq = function(this__4164__auto__) {
-  return cljs.core._conj.call(null, cljs.core.List.EMPTY, "diamond.core/D3Graph");
-};
-diamond.core.D3Graph.cljs$lang$ctorPrWriter = function(this__4164__auto__, writer__4165__auto__) {
-  return cljs.core._write.call(null, writer__4165__auto__, "diamond.core/D3Graph");
-};
-diamond.core.__GT_D3Graph = function __GT_D3Graph(svg, force_layout) {
-  return new diamond.core.D3Graph(svg, force_layout);
-};
-diamond.core.map__GT_D3Graph = function map__GT_D3Graph(G__6199) {
-  return new diamond.core.D3Graph((new cljs.core.Keyword(null, "svg", "svg", 856789142)).cljs$core$IFn$_invoke$arity$1(G__6199), (new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)).cljs$core$IFn$_invoke$arity$1(G__6199), null, cljs.core.dissoc.call(null, G__6199, new cljs.core.Keyword(null, "svg", "svg", 856789142), new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)));
-};
-diamond.core.start = function start(d3graph) {
-  return(new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016)).cljs$core$IFn$_invoke$arity$1(d3graph).start();
-};
-diamond.core.update_nodes = function update_nodes(svg, new_nodes) {
-  var node = svg.selectAll(".node").data(new_nodes);
-  node.enter().append("circle").attr("class", "node").attr("r", 8);
-  return node.append("svg:title").text(function(node) {
-    return function(d) {
-      return d.name;
-    };
-  }(node));
-};
-diamond.core.update_links = function update_links(svg, new_links) {
-  var link = svg.selectAll(".link").data(new_links);
-  link.enter().append("line").attr("class", "link");
-  return link.append("svg:title").text(function(link) {
-    return function(d) {
-      return d.desc;
-    };
-  }(link));
-};
-diamond.core.tick = function tick(p__6205) {
-  var map__6207 = p__6205;
-  var map__6207__$1 = cljs.core.seq_QMARK_.call(null, map__6207) ? cljs.core.apply.call(null, cljs.core.hash_map, map__6207) : map__6207;
-  var svg = cljs.core.get.call(null, map__6207__$1, new cljs.core.Keyword(null, "svg", "svg", 856789142));
-  var node = svg.selectAll(".node");
-  var link = svg.selectAll(".link");
-  link.attr("x1", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.source.x;
-    };
-  }(node, link, map__6207, map__6207__$1, svg)).attr("y1", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.source.y;
-    };
-  }(node, link, map__6207, map__6207__$1, svg)).attr("x2", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.target.x;
-    };
-  }(node, link, map__6207, map__6207__$1, svg)).attr("y2", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.target.y;
-    };
-  }(node, link, map__6207, map__6207__$1, svg));
-  return node.attr("cx", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.x;
-    };
-  }(node, link, map__6207, map__6207__$1, svg)).attr("cy", function(node, link, map__6207, map__6207__$1, svg) {
-    return function(d) {
-      return d.y;
-    };
-  }(node, link, map__6207, map__6207__$1, svg));
-};
-diamond.core.update = function update(p__6208, new_nodes, new_links) {
-  var map__6210 = p__6208;
-  var map__6210__$1 = cljs.core.seq_QMARK_.call(null, map__6210) ? cljs.core.apply.call(null, cljs.core.hash_map, map__6210) : map__6210;
-  var svg = cljs.core.get.call(null, map__6210__$1, new cljs.core.Keyword(null, "svg", "svg", 856789142));
-  var force_layout = cljs.core.get.call(null, map__6210__$1, new cljs.core.Keyword(null, "force-layout", "force-layout", 1247820016));
-  diamond.core.update_nodes.call(null, svg, new_nodes);
-  diamond.core.update_links.call(null, svg, new_links);
-  return force_layout.nodes(new_nodes).links(new_links);
-};
-diamond.core.create_graph = function create_graph() {
-  diamond.core.svg = d3.select("#container").append("svg").attr("width", 960).attr("height", 500);
-  diamond.core.size = cljs.core.clj__GT_js.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [700, 400], null));
-  diamond.core.force_layout = d3.layout.force().size(diamond.core.size).charge(-100).gravity(.2).linkDistance(50);
-  diamond.core.graph = new diamond.core.D3Graph(diamond.core.svg, diamond.core.force_layout);
-  diamond.core.force_layout.on("tick", function() {
-    return diamond.core.tick.call(null, diamond.core.graph);
-  });
-  return diamond.core.graph;
-};
-diamond.core.graph = diamond.core.create_graph.call(null);
-diamond.core.update.call(null, diamond.core.graph, diamond.core.nodes, diamond.core.links);
-diamond.core.start.call(null, diamond.core.graph);
+});
