@@ -4,7 +4,9 @@
         org.httpkit.timer)
   (:require [compojure.handler :as handler]
             [compojure.route :as route])
-  (:import com.thinkaurelius.titan.core.TitanFactory))
+  (:import (java.io ByteArrayOutputStream)
+           (com.thinkaurelius.titan.core TitanFactory)
+           (com.tinkerpop.blueprints.util.io.graphson GraphSONWriter)))
 
 (defn websocket-test-handler [request]
   (println "request " (pr-str request))
@@ -19,8 +21,30 @@
         (recur (inc id))))
     (schedule-task 10000 (close channel))))
 
+
+(def g (TitanFactory/open "/tmp/titan"))
+
+(defn make-lub-connection []
+  (def david (.addVertex g nil))
+  (.setProperty david "name" "David")
+  (.setProperty david "size" "big")
+
+  (def sweta (.addVertex g nil))
+  (.setProperty sweta "name" "Sweta")
+  (.setProperty sweta "size" "itsy-bitsy")
+
+  (def married (.addEdge g nil david sweta "married"))
+  (.setProperty married "lub" 99345.345)
+
+  (.commit g))
+
+(defn write-graph-to-graphson [request]
+  (def baos (ByteArrayOutputStream.))
+  (GraphSONWriter/outputGraph g baos)
+  (.toString baos))
+
 (defroutes app-routes
-  (GET "/api/test" [] (pr-str '(one two three ["herp" "derp" "duka"])))
+  (GET "/api/graph" [] write-graph-to-graphson)
   (GET "/ws" [] websocket-test-handler)
   (route/resources "/")
   (route/not-found "Page not found"))
@@ -28,12 +52,4 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (def g (TitanFactory/open "/tmp/titan"))
-  (def juno (.addVertex g nil))
-  (.setProperty juno "name" "juno")
-  (def jupiter (.addVertex g nil))
-  (.setProperty jupiter "name" "jupiter")
-  (def married (.addEdge g nil juno jupiter "married"))
-  (println (.getProperty jupiter "name"))
-  (println "Hello, World!")
   (run-server (handler/site #'app-routes) {:port 3000}))

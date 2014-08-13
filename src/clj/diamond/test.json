@@ -1,0 +1,40 @@
+{"mode": "NORMAL", "vertices": [
+    {
+        "name": "juno",
+        "_id": 520004,
+        "_type": "vertex"
+    },
+    {
+        "name": "jupiter",
+        "_id": 520008,
+        "_type": "vertex"
+    },
+    {
+        "name": "David",
+        "size": "big",
+        "_id": 560004,
+        "_type": "vertex"
+    },
+    {
+        "name": "Sweta",
+        "size": "itsy-bitsy",
+        "_id": 560008,
+        "_type": "vertex"
+    }
+], "edges": [
+    {
+        "_id": "aUov-2bha-FE",
+        "_type": "edge",
+        "_outV": 520004,
+        "_inV": 520008,
+        "_label": "married"
+    },
+    {
+        "lub": 99345.345,
+        "_id": "bKpZ-2lGk-FE",
+        "_type": "edge",
+        "_outV": 560004,
+        "_inV": 560008,
+        "_label": "married"
+    }
+]}

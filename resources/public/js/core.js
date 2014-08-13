@@ -25579,164 +25579,28 @@ diamond.core.websocket_test = function websocket_test() {
   };
   return console.log("Listening for websocket data...");
 };
-diamond.core.numx = 10;
-diamond.core.numy = 10;
-diamond.core.numnodes = diamond.core.numx * diamond.core.numy;
-diamond.core.first_names = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, ["dave", "dan", "sweta", ""], null);
-diamond.core.last_names = cljs.core.PersistentVector.EMPTY;
-diamond.core.name_strings = "1 LIAM\t1 CHARLOTTE\n2 NOAH\t2 AMELIA\n3 OLIVER\t3 OLIVIA\n4 AIDAN/AIDEN/ADEN\t4 AVA\n5 ASHER\t5 ARIA/ARYA\n6 OWEN\t6 VIOLET\n7 BENJAMIN\t7 SOPHIA/SOFIA\n8 DECLAN\t8 SCARLETT/SCARLET\n9 HENRY\t9 AUDREY\n10 JACKSON/JAXON\t10 EMMA\n11 GRAYSON/GREYSON\t11 NORA/NORAH\n12 ETHAN\t12 GRACE\n13 CALEB/KALEB\t13 LILY/LILLY\n14 LANDON/LANDEN\t14 AURORA\n15 ELIJAH\t15 ABIGAIL\n16 LUCAS/LUKAS\t16 CHLOE\n17 GABRIEL\t17 VIVIENNE/VIVIEN/VIVIAN\n18 FINN/FYNN\t18 HARPER\n19 ALEXANDER\t19 ALICE\n20 WILLIAM\t20 ELLA\n21 ELLIOT/ELIOT/ELLIOTT\t21 ELIZABETH/ELISABETH\n22 GAVIN\t22 CLAIRE/CLARE\n23 JACK\t23 LILA/LILAH\n24 LEVI\t24 ISABELLA\n25 SILAS\t25 ARIANNA/ARIANA\n26 SEBASTIAN/SEBASTIEN\t26 LUCY\n27 EMMETT\t27 ISLA\n28 HUDSON\t28 ELEANOR\n29 MICAH\t29 STELLA\n30 JACOB\t30 PENELOPE\n31 THEODORE\t31 GENEVIEVE\n32 ISAAC\t32 SADIE\n33 JAMES\t33 AVERY\n34 EVERETT\t34 HANNAH/HANNA\n35 WYATT\t35 CORA\n36 JASPER\t36 EVELYN\n37 LOGAN\t37 HAZEL\n38 LUKE\t38 JULIET/JULIETTE\n39 MILES/MYLES\t39 CAROLINE\n40 SAMUEL\t40 ADALYN";
-diamond.core.first_names = cljs.core.filter.call(null, function(p1__7075_SHARP_) {
-  return 2 < cljs.core.count.call(null, p1__7075_SHARP_);
-}, clojure.string.split.call(null, diamond.core.name_strings, /\s+/));
-diamond.core.first_names = cljs.core.flatten.call(null, cljs.core.map.call(null, function(p1__7076_SHARP_) {
-  return clojure.string.split.call(null, p1__7076_SHARP_, /\//);
-}, diamond.core.first_names));
-diamond.core.first_names = cljs.core.map.call(null, clojure.string.capitalize, diamond.core.first_names);
-diamond.core.build_random_nodes = function build_random_nodes() {
-  return cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, function() {
-    var iter__4269__auto__ = function iter__7083(s__7084) {
-      return new cljs.core.LazySeq(null, function() {
-        var s__7084__$1 = s__7084;
-        while (true) {
-          var temp__4126__auto__ = cljs.core.seq.call(null, s__7084__$1);
-          if (temp__4126__auto__) {
-            var xs__4624__auto__ = temp__4126__auto__;
-            var x = cljs.core.first.call(null, xs__4624__auto__);
-            var iterys__4265__auto__ = function(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__) {
-              return function iter__7085(s__7086) {
-                return new cljs.core.LazySeq(null, function(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__) {
-                  return function() {
-                    var s__7086__$1 = s__7086;
-                    while (true) {
-                      var temp__4126__auto____$1 = cljs.core.seq.call(null, s__7086__$1);
-                      if (temp__4126__auto____$1) {
-                        var s__7086__$2 = temp__4126__auto____$1;
-                        if (cljs.core.chunked_seq_QMARK_.call(null, s__7086__$2)) {
-                          var c__4267__auto__ = cljs.core.chunk_first.call(null, s__7086__$2);
-                          var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
-                          var b__7088 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
-                          if (function() {
-                            var i__7087 = 0;
-                            while (true) {
-                              if (i__7087 < size__4268__auto__) {
-                                var y = cljs.core._nth.call(null, c__4267__auto__, i__7087);
-                                cljs.core.chunk_append.call(null, b__7088, new cljs.core.PersistentArrayMap(null, 1, ["name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null));
-                                var G__7089 = i__7087 + 1;
-                                i__7087 = G__7089;
-                                continue;
-                              } else {
-                                return true;
-                              }
-                              break;
-                            }
-                          }()) {
-                            return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7088), iter__7085.call(null, cljs.core.chunk_rest.call(null, s__7086__$2)));
-                          } else {
-                            return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7088), null);
-                          }
-                        } else {
-                          var y = cljs.core.first.call(null, s__7086__$2);
-                          return cljs.core.cons.call(null, new cljs.core.PersistentArrayMap(null, 1, ["name", cljs.core.rand_nth.call(null, diamond.core.first_names)], null), iter__7085.call(null, cljs.core.rest.call(null, s__7086__$2)));
-                        }
-                      } else {
-                        return null;
-                      }
-                      break;
-                    }
-                  };
-                }(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__), null, null);
-              };
-            }(s__7084__$1, x, xs__4624__auto__, temp__4126__auto__);
-            var fs__4266__auto__ = cljs.core.seq.call(null, iterys__4265__auto__.call(null, cljs.core.range.call(null, diamond.core.numy)));
-            if (fs__4266__auto__) {
-              return cljs.core.concat.call(null, fs__4266__auto__, iter__7083.call(null, cljs.core.rest.call(null, s__7084__$1)));
-            } else {
-              var G__7090 = cljs.core.rest.call(null, s__7084__$1);
-              s__7084__$1 = G__7090;
-              continue;
-            }
-          } else {
-            return null;
-          }
-          break;
-        }
-      }, null, null);
-    };
-    return iter__4269__auto__.call(null, cljs.core.range.call(null, diamond.core.numx));
-  }()));
-};
-diamond.core.generate_random_links = function generate_random_links(i, nodes) {
-  var nameof = function(p1__7091_SHARP_) {
-    return cljs.core.nth.call(null, nodes, p1__7091_SHARP_).name;
-  };
-  return cljs.core.map.call(null, function(nameof) {
-    return function(t) {
-      return new cljs.core.PersistentArrayMap(null, 3, ["source", i, "target", t, "desc", "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, i)) + " lubs " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(nameof.call(null, t))], null);
-    };
-  }(nameof), cljs.core.take.call(null, 1, cljs.core.shuffle.call(null, cljs.core.remove.call(null, function(nameof) {
-    return function(p1__7092_SHARP_) {
-      return cljs.core._EQ_.call(null, i, p1__7092_SHARP_);
-    };
-  }(nameof), cljs.core.range.call(null, diamond.core.numnodes)))));
-};
-diamond.core.build_random_links = function build_random_links(nodes) {
-  return cljs.core.clj__GT_js.call(null, cljs.core.into.call(null, cljs.core.PersistentVector.EMPTY, cljs.core.flatten.call(null, function() {
-    var iter__4269__auto__ = function iter__7097(s__7098) {
-      return new cljs.core.LazySeq(null, function() {
-        var s__7098__$1 = s__7098;
-        while (true) {
-          var temp__4126__auto__ = cljs.core.seq.call(null, s__7098__$1);
-          if (temp__4126__auto__) {
-            var s__7098__$2 = temp__4126__auto__;
-            if (cljs.core.chunked_seq_QMARK_.call(null, s__7098__$2)) {
-              var c__4267__auto__ = cljs.core.chunk_first.call(null, s__7098__$2);
-              var size__4268__auto__ = cljs.core.count.call(null, c__4267__auto__);
-              var b__7100 = cljs.core.chunk_buffer.call(null, size__4268__auto__);
-              if (function() {
-                var i__7099 = 0;
-                while (true) {
-                  if (i__7099 < size__4268__auto__) {
-                    var i = cljs.core._nth.call(null, c__4267__auto__, i__7099);
-                    cljs.core.chunk_append.call(null, b__7100, diamond.core.generate_random_links.call(null, i, nodes));
-                    var G__7101 = i__7099 + 1;
-                    i__7099 = G__7101;
-                    continue;
-                  } else {
-                    return true;
-                  }
-                  break;
-                }
-              }()) {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7100), iter__7097.call(null, cljs.core.chunk_rest.call(null, s__7098__$2)));
-              } else {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7100), null);
-              }
-            } else {
-              var i = cljs.core.first.call(null, s__7098__$2);
-              return cljs.core.cons.call(null, diamond.core.generate_random_links.call(null, i, nodes), iter__7097.call(null, cljs.core.rest.call(null, s__7098__$2)));
-            }
-          } else {
-            return null;
-          }
-          break;
-        }
-      }, null, null);
-    };
-    return iter__4269__auto__.call(null, cljs.core.filter.call(null, cljs.core.even_QMARK_, cljs.core.range.call(null, diamond.core.numnodes)));
-  }())));
-};
-diamond.core.nodes = diamond.core.build_random_nodes.call(null);
-diamond.core.links = diamond.core.build_random_links.call(null, diamond.core.nodes);
 diamond.core.graph = diamond.d3.graph.create_graph.call(null, 900, 1200);
-diamond.d3.graph.update.call(null, diamond.core.graph, diamond.core.nodes, diamond.core.links);
-diamond.d3.graph.start.call(null, diamond.core.graph);
-window.addEventListener("keydown", function(event) {
-  if (cljs.core._EQ_.call(null, 13, event.keyCode)) {
-    console.log("updating graph");
-    diamond.core.links.push(cljs.core.clj__GT_js.call(null, cljs.core.first.call(null, diamond.core.generate_random_links.call(null, cljs.core.rand_int.call(null, diamond.core.numnodes), diamond.core.nodes))));
-    diamond.d3.graph.update.call(null, diamond.core.graph, diamond.core.nodes, diamond.core.links);
-    return diamond.d3.graph.start.call(null, diamond.core.graph);
+d3.json("/api/graph", function(error, json) {
+  if (!(error == null)) {
+    return console.log("error: ", error);
   } else {
-    return null;
+    var js_nodes = (new cljs.core.Keyword(null, "vertices", "vertices", 2008905731)).cljs$core$IFn$_invoke$arity$1(json);
+    var js_links = (new cljs.core.Keyword(null, "edges", "edges", -694791395)).cljs$core$IFn$_invoke$arity$1(json);
+    var n_index = function(js_nodes, js_links) {
+      return function(node_id) {
+        return cljs.core.first.call(null, cljs.core.filter.call(null, function(js_nodes, js_links) {
+          return function(p1__4965_SHARP_) {
+            return cljs.core._EQ_.call(null, node_id, p1__4965_SHARP_["_id"]);
+          };
+        }(js_nodes, js_links), js_nodes));
+      };
+    }(js_nodes, js_links);
+    console.log("success: ");
+    diamond.d3.graph.update.call(null, diamond.core.graph, js_nodes, cljs.core.clj__GT_js.call(null, cljs.core.map.call(null, function(js_nodes, js_links, n_index) {
+      return function(link) {
+        return new cljs.core.PersistentArrayMap(null, 2, ["source", n_index.call(null, link["_outV"]), "target", n_index.call(null, link["_inV"])], null);
+      };
+    }(js_nodes, js_links, n_index), js_links)));
+    return diamond.d3.graph.start.call(null, diamond.core.graph);
   }
 });
