@@ -22,9 +22,9 @@
     (schedule-task 10000 (close channel))))
 
 
-(def g (TitanFactory/open "/tmp/titan"))
 
 (defn make-lub-connection []
+  (def g (TitanFactory/open "/tmp/titan"))
   (def david (.addVertex g nil))
   (.setProperty david "name" "David")
   (.setProperty david "size" "big")
@@ -39,6 +39,7 @@
   (.commit g))
 
 (defn write-graph-to-graphson [request]
+  (def g (TitanFactory/open "/tmp/titan"))
   (def baos (ByteArrayOutputStream.))
   (GraphSONWriter/outputGraph g baos)
   (.toString baos))
@@ -52,4 +53,5 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
+  (def g (TitanFactory/open "/tmp/titan"))
   (run-server (handler/site #'app-routes) {:port 3000}))

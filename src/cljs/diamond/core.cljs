@@ -96,15 +96,16 @@
   (fn [error json]
     (if-not (nil? error)
       (.log js/console "error: " error)
-      (let [js-nodes (:vertices json)
-            js-links (:edges json)
+      (let [js-nodes (.-vertices json)
+            js-links (.-edges json)
             n-index (fn [node-id] (first (filter #(= node-id (aget % "_id")) js-nodes)))]
         (.log js/console "success: ")
         (g/update graph
-          js-nodes
+          (clj->js js-nodes)
           (clj->js (map (fn [link]
                           {"source" (n-index (aget link "_outV"))
-                           "target" (n-index (aget link "_inV"))})
+                           "target" (n-index (aget link "_inV"))
+                           "desc" (.-_label link)})
                      js-links)))
         (g/start graph)))))
 

@@ -15,7 +15,8 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
   :plugins [[lein-cljsbuild "1.0.3"]
-            [lein-ring "0.8.11"]]
+            [lein-ring "0.8.11"]
+            [cider/cider-nrepl "0.7.0"]]
   :ring {:handler diamond.core/handler}
   :cljsbuild {:builds
               [{;; CLJS source code path
